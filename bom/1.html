@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style type="text/css">
+            #boton{
+                background-color: red;
+                width: 100px;
+                height: 100px;
+               
+                
+            }
+            #contenido{
+                background-color: green;
+              
+                
+            }
+            
+        </style>
+        
+    </head>
+    <body>
+      <div ><input type="button" onclick="c()" id="boton"/></div>
+            
+       
+        <div id="contenido"></div>
+           <script type="text/javascript">
+        
+        function c(){
+            try {
+                
+                var contenido = document.getElementById("contenido");
+                var parrafo = document.createElement("p");
+                var texto = document.createTextNode("SOY NUEVO");
+                parrafo.appendChild(texto);
+                contenido.appendChild(parrafo);
+                
+            } catch(error){
+                console.log(error.message);
+            }
+            
+            
+            
+        }
+        
+        
+        
+        
+    </script>
+    </body>
+    
+ 
+</html>
