@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        
+    </head>
+    <body>
+       <input type="button" name="Click" onClick= "c()">Ventana</input>
+        
+       <div id=conteindo></div>
+       
+      <script type="text/javascript">
+    
+         
+          var ventana;
+          var x;
+          var y;
+          
+        
+        function c(){
+       
+          ventana= window.open("","_blank","toolbar=no,directories=no,menubar=no,status=yes,width=200,height=200");
+         
+          x= ventana.screenX;
+          y= ventana.screenY;
+          
+          ventana.document.body.innerHTML = "<input type='button' name='arriba' id='arriba'/>Arriba</input></br>"
+                          + "<input type='button' name='abajo'  id= 'abajo'/>Abajo</input></br>"+
+                          "<input type='button' name='izquierda'  id= 'izquierda'/>izquierda</input></br>"+
+                          "<input type='button' name='derecha'  id= 'derecha'/>derecha</input></br>"
+                          +"<input type='button' name='agrandar'  id= 'agrandar'/>agrandar</input></br>"+
+                          "<input type='button' name='disminuir'  id= 'disminuir'/>disminuir</input>";
+          ventana.document.getElementById('arriba').onclick= arriba;
+          ventana.document.getElementById('abajo').onclick= abajo;
+          ventana.document.getElementById('izquierda').onclick= izquierda;
+          ventana.document.getElementById('derecha').onclick= derecha;
+          ventana.document.getElementById('agrandar').onclick= agrandar;
+          ventana.document.getElementById('disminuir').onclick= disminuir;
+
+          }
+        
+        function arriba(){
+            y = y - 10;
+            ventana.moveTo(x,y);
+            console.log("arriba");
+            
+        }
+          function abajo(){
+            y= y +10;
+            ventana.moveTo(x,y);
+            
+          }  
+         function izquierda(){
+            x = x - 10;
+            ventana.moveTo(x,y);
+            console.log("arriba");
+            
+        }
+          function derecha(){
+            x= x +10;
+            ventana.moveTo(x,y);
+            
+          }
+           function agrandar(){
+          
+                ventana.moveTo(0,0);
+                ventana.resizeTo(400,400);
+          }
+          
+            function disminuir(){
+          
+                ventana.moveTo(0,0);
+                ventana.resizeTo(100,100);
+          }
+          
+    
+    </script>
+  </body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        
+    </head>
+    <body>
+       <input type="button" name="venta" onclick="pulsar()"> Ventana</ventana>
+       <input type='button' name='parar' id='parar' onclick="pulsar()"> parar</input>
+        
+     
+       
+      <script type="text/javascript">
+    
+         
+            var x;
+            var y;
+        	var ventana;
+        	
+        	function pulsar(){
+        	    
+        	    ventana= window.open("","_blank","toolbar=no,directories=no,menubar=no,status=yes,width=200,height=200");
+        	    x= ventana.screenX;
+                y= ventana.screenY;
+                
+                
+                
+        	    
+        	    
+        		ventana.onmouseover = abajo;
+
+        		
+        	}
+        function abajo(){
+           
+            y = y + 10;
+           
+            ventana.moveTo(x,y);
+           
+            
+        }
+        
+        function parar(){
+           
+            ventana.stop;
+           
+            
+        }
+      
+                  
+    
+    </script>
+  </body>
+</html>
