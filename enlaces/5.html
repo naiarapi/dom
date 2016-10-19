@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        
+    </head>
+    <body>
+        <ul>
+            <li><a href="http://www.adobe.com" id="enlace1"
+            onMouseOver="enlace(1);">Adobe</a></li>
+            <li><a href="http://www.apple.com" id="enlace2"
+            onMouseOver="enlace(2);">Apple</a></li>
+            <li><a href="http://www.ibm.com" id="enlace3" onMouseOver="enlace(3);">IBM</a></li>
+        </ul>
+        
+        <input type="text" id="contenido" />
+
+         <script type="text/javascript">
+        
+            function enlace(valor){ 
+                
+             switch(valor){
+                case 1:
+                    document.getElementById("contenido").value =
+                    document.getElementById("enlace1").href;
+                 break;
+                case 2:
+                    document.getElementById("contenido").value =
+                    document.getElementById("enlace2").href;
+                 break;
+                case 3:
+                    document.getElementById("contenido").value =
+                    document.getElementById("enlace3").href;
+                 break;
+                default:
+                     document.getElementById("contenido").value ="error";
+                 break;
+            }
+        }
+        </script>
+    </body>
+</html>
+

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        
+    </head>
+    
+    <body>
+        <input type="button" name="1" id="uno" onclick= "boton(1)" value= "1"/>
+        <input type="button" name="2" id="dos" onclick= "boton(2)" value= "2"/>
+        <input type="button" name="3" id="tres" onclick= "boton(3)" value= "3"/>
+        
+        <div id= "contenido"></div>
+        <script type="text/javascript">
+             
+             var contenido= document.getElementById("contenido");
+            
+            function boton(valor){
+              
+              if(valor=="1"){
+                 contenido.innerHTML= "<p>Has pulsado 1</p>";
+              }else if (valor=="2"){
+                   contenido.innerHTML= "<p>Has pulsado 2</p>";
+              }else  if (valor=="3"){
+                   contenido.innerHTML= "<p>Has pulsado 3</p>";
+              }
+                   
+                 
+             
+                
+                
+            }
+            
+            
+            
+        </script>
+    </body>
+</html>
