@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+        <title>Eventos II</title>
+    <style type="text/css">
+        #texto-info {
+            color: blue;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <button id="btn">Abrir PopUp</button>
+    <p id="texto-info"></p>
+
+<script>
+    
+    var ventana;
+    var btn = document.getElementById("btn");
+    var mueve = false;
+    var p = document.getElementById("texto-info");
+    var count = 5;
+    
+    btn.onclick = function(e){
+        ventana = window.open("","VENTANA", "height=200, width=200");
+        /**
+         * Detecta si el usuario no mueve el ratón
+         */ 
+        var mueve = false;
+        document.onmousemove = function(){
+            mueve = true;
+        }
+        document.onclick = function(){
+            mueve = true;
+        }
+        setInterval(function(){
+            if(!mueve){
+                ventana.close();
+                p.innerHTML = "No has movido o clickado el ratón durante 5 segundos y la ventana se ha cerrado...";
+            } else {
+                mueve = false;
+                ventana.document.body.innerHTML = "<p>Has movido o clickado el ratón</p>";
+            }
+        }, 5000);
+    }
+    
+</script>
+
+</body>
+</html>

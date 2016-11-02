@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+    <div align="center">
+    <textarea id="descripcion" cols="40" rows="3" name="descripcion" o> </textarea></br>
+    <span id="letras">140/140 caracteres</span>
+    </div>
+
+    <script type="text/javascript">
+        
+        var text = document.getElementById("descripcion");
+        var caracteres = 140;
+        var letras = document.getElementById("letras");
+    
+        text.onkeydown = function(e){
+            caracteres--;
+            letras.innerHTML = caracteres + "/140 caracteres";
+        }
+        
+    </script>
+</body>
+</html>
+

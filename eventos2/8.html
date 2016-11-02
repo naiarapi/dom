@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		div{
+			width: 200px;
+			height: 200px;
+			margin-left: 250px;
+			margin-right: 250px;
+			margin-top: 200px;
+			background-color: yellow;
+		}
+	</style>
+</head>
+<body>
+
+	<div id="cuadrado"></div>
+	<script type="text/javascript">
+		
+		var cuadrado = document.getElementById("cuadrado");
+		var posX= 0;
+		var posY= 0;
+		
+
+		document.onkeydown = function(event){
+            var tecla = event.keyCode;
+		
+			if(tecla == 37){
+
+				posX= posX - 10;
+				cuadrado.style.marginLeft = posX + "px"; 
+				
+			}else if (tecla == 39){
+				posX = posX + 10;
+				cuadrado.style.marginLeft = posX +"px";
+				
+			}else if(tecla == 38){
+				posY = posY - 10;
+				cuadrado.style.marginTop = posY + "px";
+			}else if(tecla == 40){
+				posY= posY + 10;
+				cuadrado.style.marginTop = posY + "px";
+			}
+		}	
+
+
+
+
+	</script>
+</body>
+</html>

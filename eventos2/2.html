@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        
+    </head>
+    <body>
+        <input type="button" name="uno" value="1" onclick="numeros(1)" />
+        <input type="button" name="dos" value="2"  onclick="numeros(2)" />
+        <input type="button" name="tres" value="3"  onclick="numeros(3)" />
+        <input type="button" name="cuatro" value="4"  onclick="numeros(4)" />
+        <input type="button" name="cinco" value="5"  onclick="numeros(5)" />
+        <input type="button" name="seis" value="6"  onclick="numeros(6)" />
+        <input type="button" name="siete" value="7"  onclick="numeros(7)" />
+        <input type="button" name="ocho" value="8"  onclick="numeros(8)" />
+        <input type="button" name="nueve" value="9"  onclick="numeros(9)"/>
+        
+        <div type="text" id="contenido"></div>
+        
+        <script type="text/javascript">
+        
+            function numeros(valor){
+                
+                 
+             switch(valor){
+                case 1:
+                    document.getElementById("contenido").innerHTML+= 1;
+                    
+                 break;
+                case 2:
+                    document.getElementById("contenido").innerHTML+= 2;
+                   
+                 break;
+                case 3:
+                    document.getElementById("contenido").innerHTML += 3;
+                break;
+                
+                case 4:
+                    document.getElementById("contenido").innerHTML += 4;
+                break;
+                
+                case 5:
+                    document.getElementById("contenido").innerHTML += 5;
+                break;
+                
+                case 6:
+                    document.getElementById("contenido").innerHTML += 6;
+                break;
+                
+                case 7:
+                    document.getElementById("contenido").innerHTML += 7;
+                break;
+                
+                 case 8:
+                    document.getElementById("contenido").innerHTML += 8;
+                break;
+                
+                 case 9:
+                    document.getElementById("contenido").innerHTML += 9;
+                break;
+                
+                default:
+                     document.getElementById("contenido").innerHTML ="error";
+                 break;
+            }
+                
+                
+                
+            }    
+            
+            
+            
+        </script>
+    </body>
+</html>

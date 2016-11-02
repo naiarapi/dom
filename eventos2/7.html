@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		
+		body{
+			background-color: green;
+
+		}
+	</style>
+</head>
+<body>
+
+<script type="text/javascript">
+
+	var x = document.documentElement.clientWidth;
+	var y = document.documentElement.clientHeigth;
+
+	document.onmousemove=function(event){
+		var posX = event.pageX;
+		var posY = event.pageY;
+
+		if((posX <= (x *10)/100) || (posY <= (y *10)/100)){
+			document.body.style.backgroundColor = "red";
+		}else if ((posX >= (x *10)/100) && (posX <= (x*20)/100) || (posY >= (y *10)/100) && (posY<= (y*20)/100)){
+			document.body.style.backgroundColor = "yellow";
+		}else {
+			document.body.style.backgroundColor = "green";
+		}
+	}
+		
+
+
+</script>
+
+</body>
+</html>
