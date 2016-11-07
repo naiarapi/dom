@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        
+    </head>
+    <body>
+        <form onsubmit= "return validar()">
+            <input type="text" name="nombre"  id= "nombre"/>Nombre
+            <input type="text" name="apellido"  id= "apellido"/>Apellido
+            <input type="text" name="direcion" id="direccion" />Direccion
+            <input type="submit" value="Comprobar" onclick = "validar()"/>
+        </form>
+        
+        <script type="text/javascript">
+            
+            var nombre = document.getElementById("nombre");
+            var apellido = document.getElementById("apellido");
+            var direccion = document.getElementById("direcion");
+        
+            function validar (){
+               
+                if(nombre.value == "" || apellido.value == "" || direccion == ""){
+                     alert("obligatorio");
+                     return false;
+                }else{
+                    alert(nombre.value + apellido.value + direccion.value);
+                    return true;
+                }
+            }    
+            
+            
+            
+            
+        </script>
+    </body>
+</html>
