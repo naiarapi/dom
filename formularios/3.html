@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+   
+<meta charset="utf-8"/>
+
+</head>
+<body>
+	
+	<form name="formulario" action="#" method="post" onsubmit="return enviar()">
+	
+		<input type="text" id="nombre" value="nombre" />
+		</br>
+		</br>
+		<input type="text" id="apellido" value="apellido"/>
+		</br>
+		</br>
+	    <input type="text" id="telefono" value="telefono"/>
+	    </br>
+	    </br>
+		<input type="email" id="email" value="email"/>
+		</br>
+		</br>
+		Comentar: <textarea id="comentar" cols="40" rows="3" name="descripcion" maxlength="100"> </textarea>
+			
+    	<input type="submit" value="Aceptar" name="aceptar" />
+    	<input type="reset" value="Cancelar" name="cancelar" />
+	
+	</form>
+	
+	
+    	<script type="text/javascript">
+    	
+    	function enviar(){
+    		var email = document.getElementById("email");
+    		var datos = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+    		if (datos.test(email.value) == false) {
+    			return false;
+    		}
+    			return true;
+    	}
+	
+        </script>
+</body>
+</html>

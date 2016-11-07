@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+   
+<meta charset="utf-8"/>
+
+</head>
+<body onload="focus()">
+	
+	<form name="formulario" action="#" method="post">
+	
+		<input type="text" id="nombre" value="nombre" onkeypress="enter(this, event)" />
+		</br>
+		</br>
+		<input type="text" id="apellido" value="apellido" onkeypress="enter(this, event)"/>
+		</br>
+		</br>
+		<input type="text" id="direccion" value="direccion" onkeypress="enter(this, event)"/>
+		</br>
+		</br>
+		<input type="text" id="poblacion" value="poblacion" onkeypress="enter(this, event)"/>
+		</br>
+		</br>
+		<input type="text" id="codigo" value="codigo postal" onkeypress="enter(this, event)"/>
+		</br>
+		</br>
+	    <input type="text" id="provincia" value="provincia" onkeypress="enter(this, event)"/>
+	    </br>
+	    </br>
+    	<input type="button" value="enviar" name="enviar" onclick= "enviar()"/>
+    	<input type="reset" value="limpiar" name="limpiar" />
+	
+	</form>
+	
+	
+    	<script type="text/javascript">
+    	
+            function focus() {
+        			document.getElementById("nombre").focus();
+        	}
+        	function enviar(){
+        		var nom= document.getElementById("nombre");
+        		var apell= document.getElementById("apellido");
+        		var dir= document.getElementById("direccion");
+        		var pobl= document.getElementById("poblacion");
+        		var codPostal= document.getElementById("codigo");
+        		var provi= document.getElementById("provincia");
+        		var i=0;
+        
+        		if (nom.value ==""){	
+        			nom.style.background= "#F6CEF5";
+        			i=1;
+        		}if (apell.value == ""){
+        			apell.style.background= "#F6CEF5";
+        			i=1; 
+        		}if (dir.value == ""){ 
+        			dir.style.background= "#F6CEF5";
+        			i=1;
+        
+        		}if (pobl.value == ""){
+        			pobl.style.background="#F6CEF5";
+        			i=1;
+        
+        		}if (codPostal.value == ""){
+        			codPostal.style.background= "#F6CEF5";
+        			i=1;
+        
+        		}if (provi.value == ""){
+        			provi.style.background="#F6CEF5";
+        			i=1;
+        
+        		}if (i == 1){
+        			return false; 
+        
+        		}else{
+        			document.forms["formulario"].submit();
+        			return true;
+        
+        		}
+        	}
+        	function enter(tab, y){
+        		var y=(typeof event!='undefined') ?window.event:y;
+        		if(y.keyCode==13){
+        			var eleme= document.forms[0].elements;
+        			for(var a=0; a<eleme.length;a++){
+        				var x=(a==eleme.length-1)?0:a+1;
+        				if (tab==eleme[a]){
+        					eleme[x].focus();
+        					break
+        				}
+        			}
+        			return false;
+        		}
+        	}
+        	
+        </script>
+</body>
+</html>

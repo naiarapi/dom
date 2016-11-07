@@ -1,36 +1,40 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        
-    </head>
-    <body>
-        <form onsubmit= "return validar()">
+<head>
+   <title>Formularios</title> 
+<meta charset="utf-8"/>
+
+</head>
+<body>
+
+    	<form onsubmit= "return validar()">
             <input type="text" name="nombre"  id= "nombre"/>Nombre
             <input type="text" name="apellido"  id= "apellido"/>Apellido
             <input type="text" name="direcion" id="direccion" />Direccion
-            <input type="submit" value="Comprobar" onclick = "validar()"/>
-        </form>
+            <input type="submit" value="comprobar" name="comprobar"/>
+      </form>
+      
+    	<script type="text/javascript">
+
+        	function validar(){
+        	    
+        	    var formulario = document.forms[0];
         
-        <script type="text/javascript">
-            
-            var nombre = document.getElementById("nombre");
-            var apellido = document.getElementById("apellido");
-            var direccion = document.getElementById("direcion");
-        
-            function validar (){
-               
-                if(nombre.value == "" || apellido.value == "" || direccion == ""){
-                     alert("obligatorio");
-                     return false;
-                }else{
-                    alert(nombre.value + apellido.value + direccion.value);
-                    return true;
-                }
-            }    
-            
-            
-            
-            
+        		if(formulario.elements[0].value==""){
+        			alert("El campo nombre debe tener algun valor");
+        			return false;
+        		}else if(formulario.elements["apellido"].value==""){
+        			alert("El campo apellido debe tener algun valor");
+        			return false;
+        		}else if(formulario.direccion.value==""){
+        			alert("El campo direccion debe tener algun valor");
+        			return false;
+        		}
+        			return true;
+        		
+        	}
+
         </script>
     </body>
 </html>
+       

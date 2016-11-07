@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+         <style>
+    		div{
+    			height: 70px;
+    			width: 70px;
+    			float: left;
+    			margin-left: 25px;
+    			background: black;
+    				
+    		}
+    	</style>
+    </head>
+    <body>
+      
+        
+        <form name="formulario" action="#" method="post">
+            
+            <table>
+    			<div id="cuad1"></div>
+    			<div id="cuad2"></div>
+    			<div id="cuad3"></div>
+    			<div id="cuad4"></div>
+	    	</table>
+        	</br>
+    		</br>
+    		</br>
+    		</br>
+    		<select name="cuadrado" id="cuadrado">
+    			<option value="" >Elige un cuadro</option>
+    			<option value="cuad1">1</option>
+    			<option value="cuad2">2</option>
+    			<option value="cuad3">3</option>
+    			<option value="cuad4">4</option>
+    		</select>
+    		<select name="color" id="color">
+    			<option value="" >Elige un color</option>
+    			<option value="#BC2222">rojo</option>
+    			<option value="#6DEC5F">verde</option>
+    			<option value="#895FEC">morado</option>
+    			<option value="#ECAA5F">naranja</option>
+    		</select>
+    		</br>
+    		</br>
+    		<input type="button" value="Aceptar" name="aceptar" onclick="cambiar_color()" />
+    		<input type="reset" value="Cancelar" name="cancelar" />
+
+    	</form>
+    	
+    	<script type="text/javascript">
+    	    
+    	    function cambiar_color() {
+			
+			var cuadrado = document.getElementById("cuadrado");
+			var cuadInd = cuadrado.selectedIndex;
+			var cuadOpti = cuadrado.options[cuadInd];
+			var cuad = cuadOpti.value;
+			
+			var color = document.getElementById("color");
+			var colorInd = color.selectedIndex;
+			var colorOpt = color.options[colorInd];
+			var color = colorOpt.value;
+
+			var cuadr = document.getElementById(cuad);
+			cuadr.style.backgroundColor= color;
+		}
+
+    	    
+    	    
+    	    
+    	    
+    	    
+    	    
+    	</script>
+        
+    </body>
+</html>
