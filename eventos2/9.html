@@ -23,7 +23,9 @@
 		var posX= 0;
 		var posY= 0;
 
-		document.onmousemove= function(event){
+		document.onmousedown= function(event){
+			cuadrado.style.backgroundColor= "blue";
+			document.onmousemove = function (event){
 		    posX= posX - 10;
 			cuadrado.style.marginLeft = posX + "px"; 
 			posX = posX + 10;
@@ -32,11 +34,16 @@
 			cuadrado.style.marginTop = posY + "px";
 			posY= posY + 10;
 			cuadrado.style.marginTop = posY + "px";
+			}
 		}	
 		document.onmouseout=function(event){
-			cuadrado.style.backgroundColor = "blue";
+			cuadrado.style.backgroundColor = "yellow";
+			document.onmousemove= "";
 		}
 		
+		
+		
+	
 
 	</script>
 
