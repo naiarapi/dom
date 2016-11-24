@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        
+    </head>
+    <body>
+        <table id="pelicula1">Peliculas</table>
+        
+       
+       <script type="text/javascript">
+       
+          function archivoXML() {
+              // Obtener la instancia del objeto XMLHttpRequest
+              if(window.XMLHttpRequest) {
+                 peticionHttp = new XMLHttpRequest();
+              }
+            
+              
+              peticionHttp.onreadystatechange = listaPeliculas;
+              peticionHttp.open('GET', '2.xml', true);
+              peticionHttp.send(); 
+              
+           function listaPeliculas(){
+                //hace la llamada  
+               var documentoXml = peticionHttp.responseXML;
+
+                if(peticionHttp.status == 200) {
+                  
+                    var titulo= documentoXml.getElementsByTagName("Titulo");
+                    var director = documentoXml.getElementsByTagName("Director");
+                    
+                    for(var i=0; i< titulo.length; i++){
+                        muestra('pelicula1',director[i].childNodes[0].nodeValue+"-->"+titulo[i].childNodes[0].nodeValue+"<br/>");
+             
+                
+               }
+             }
+           }    
+                
+            function muestra(id, peli){
+              if(document.getElementById){
+                    // con el + le indicamos que nos muestre todas las pelis si le quitamos el mas solo nos muestra UNA PELI
+                    document.getElementById(id).innerHTML += peli;
+              }
+            }
+          }       
+         window.onload = archivoXML();
+   
+       </script>
+        
+    </body>
+    
+    
+</html>
