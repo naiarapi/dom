@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<Peliculas>
+  <Pelicula>
+     <Director>Quentin Tarantino</Director >
+     <Titulo>Reservoir dogs</Titulo>
+     <Cartel>img/0.jpg</Cartel>
+     <Sinopsis>A group of thieves assemble to pull of the perfect diamond heist. It turns into a bloody ambush when one of the men turns out to be a police informer. 
+     As the group begins to question each other's guilt, the heightening tensions threaten to explode the situation before the police step in.</Sinopsis>
+  </Pelicula >
+  <Pelicula >
+     <Director>Danny Boyle</Director >
+     <Titulo>Trainspotting</Titulo>
+     <Cartel>img/1.jpg</Cartel>
+     <Sinopsis>He also has an underage girlfriend, Diane (Kelly Macdonald), along for the ride.
+     After cleaning up and moving from Edinburgh to London, Mark finds he can't escape the life he left behind when Begbie shows up at his front door on the lam, and a scheming Sick Boy follows.</Sinopsis>
+  </Pelicula >
+  <Pelicula >
+     <Director>Christopher Nolan</Director >
+     <Titulo>Batman Begins</Titulo>
+     <Cartel>img/2.jpg</Cartel> 
+     <Sinopsis>A young Bruce Wayne (Christian Bale) travels to the Far East, where he's trained in the martial arts by Henri Ducard (Liam Neeson), a member of the mysterious League of Shadows. When Ducard reveals the League's true purpose -- the complete destruction of Gotham City
+     -- Wayne returns to Gotham intent on cleaning up the city without resorting to murder.
+     With the help of Alfred (Michael Caine), his loyal butler, and Lucius Fox (Morgan Freeman), a tech expert at Wayne Enterprises, Batman is born.</Sinopsis>
+  </Pelicula >
+  <Pelicula >
+     <Director> Christopher Nolan </Director >
+     <Titulo>Inception</Titulo>
+     <Cartel>img/3.jpg</Cartel>
+     <Sinopsis>Dom Cobb (Leonardo DiCaprio) is a thief with the rare ability to enter people's dreams and steal their secrets from their subconscious. 
+     His skill has made him a hot commodity in the world of corporate espionage but has also cost him everything he loves. </Sinopsis>
+  </Pelicula >
+  <Pelicula >
+     <Director> Guy Ritchie </Director >
+     <Titulo>Snach</Titulo>
+     <Cartel>img/4.jpg</Cartel>
+     <Sinopsis>Illegal boxing promoter Turkish (Jason Statham) convinces gangster Brick Top (Alan Ford) to offer bets on bare-knuckle boxer Mickey (Brad Pitt) at his bookie business. 
+     When Mickey does not throw his first fight as agreed, an infuriated Brick Top demands another match</Sinopsis>
+  </Pelicula >
+  <Pelicula >
+     <Director>Ridley Scott</Director >
+     <Titulo>Gladiator</Titulo>
+     <Cartel>img/5.jpg</Cartel>
+     <Sinopsis>Commodus (Joaquin Phoenix) takes power and strips rank from Maximus (Russell Crowe), one of the favored generals of his predecessor and father, Emperor Marcus Aurelius, the great stoical philosopher. 
+     Maximus is then relegated to fighting to the death in the gladiator arenas.</Sinopsis>
+  </Pelicula >
+</Peliculas>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <style type="text/css">
+           img{
+             height: 500px;
+             width:300px;
+         
+         } 
+         
+         .ocultar{
+             display:none;
+         }
+         
+              
+      </style>
+        
+                  
+    </head>
+    <body>
+      <div id="pelicula1" onclick= "sinopsis()"></div>
+      <div id="pelicula2"></div>
+      <script type="text/javascript">
+            function archivoXML() {
+              // Obtener la instancia del objeto XMLHttpRequest
+              if(window.XMLHttpRequest) {
+                 peticionHttp = new XMLHttpRequest();
+              }
+           
+              peticionHttp.onreadystatechange = listaPeliculas;
+              peticionHttp.open('GET', '3.xml', true);
+              peticionHttp.send(); 
+              
+              function listaPeliculas(){
+                //hace la llamada  
+               var documentoXml = peticionHttp.responseXML;
+
+                if(peticionHttp.status == 200) {
+                  
+                    var titulo= documentoXml.getElementsByTagName("Titulo");
+                    var director = documentoXml.getElementsByTagName("Director");
+                    var cartel = documentoXml.getElementsByTagName("Cartel");
+                    var sinopsis = documentoXml.getElementsByTagName("Sinopsis");
+                    
+                    for(var i=0; i< titulo.length; i++){
+                        muestra('pelicula1',"</br>"+director[i].childNodes[0].nodeValue+"-->"+titulo[i].childNodes[0].nodeValue+"<br/><img src='"+cartel[i].childNodes[0].nodeValue+ "'/></br><div class='ocultar"+sinopsis[i].childNodes[0].nodeValue+"'/></br>");
+             
+                
+               }
+             }
+           }    
+            function muestra(id, peli){
+              if(document.getElementById){
+                    // con el + le indicamos que nos muestre todas las pelis si le quitamos el mas solo nos muestra UNA PELI
+                    document.getElementById(id).innerHTML += peli;
+              }
+            }
+            function sinopsis(){
+                
+             var documentoXml = peticionHttp.responseXML;
+                 if(peticionHttp.status == 200) {
+                     var sinopsis = documentoXml.getElementsByTagName("Sinopsis");
+                         for(var i=0; i< sinopsis.length; i++){    
+                          muestraSinopsis('pelicula2', sinopsis[i].childNodes[0].nodeValue)
+                         }   
+                 }
+          }   
+                
+           function muestraSinopsis(id,peli){
+                if(document.getElementById){
+                    // con el + le indicamos que nos muestre todas las pelis si le quitamos el mas solo nos muestra UNA PELI
+                    document.getElementById(id).innerHTML += peli;
+              }
+           }
+            
+            
+           
+            }
+         window.onload = archivoXML(); 
+              
+     
+      </script>        
+    </body>
+</html>
