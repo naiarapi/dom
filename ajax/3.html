@@ -31,6 +31,8 @@
               peticionHttp.open('GET', '3.xml', true);
               peticionHttp.send(); 
               
+              listaPeliculas();
+            }
               function listaPeliculas(){
                 //hace la llamada  
                var documentoXml = peticionHttp.responseXML;
@@ -43,39 +45,38 @@
                     var sinopsis = documentoXml.getElementsByTagName("Sinopsis");
                     
                     for(var i=0; i< titulo.length; i++){
-                        muestra('pelicula1',"</br>"+director[i].childNodes[0].nodeValue+"-->"+titulo[i].childNodes[0].nodeValue+"<br/><img src='"+cartel[i].childNodes[0].nodeValue+ "'/></br><div class='ocultar"+sinopsis[i].childNodes[0].nodeValue+"'/></br>");
+                        muestra('pelicula1',"<div id='pelicula-"+i+"' class = 'pelicula'>"+director[i].childNodes[0].nodeValue+"-->"+titulo[i].childNodes[0].nodeValue+"<br/><img src='"+cartel[i].childNodes[0].nodeValue+ "'/></br><div class='sinopsis ocultar'>"+sinopsis[i].childNodes[0].nodeValue+"</div></br>");
              
                 
                }
              }
-           }    
+           }  
+           
             function muestra(id, peli){
               if(document.getElementById){
                     // con el + le indicamos que nos muestre todas las pelis si le quitamos el mas solo nos muestra UNA PELI
                     document.getElementById(id).innerHTML += peli;
               }
             }
+            
+            var allPeliculas = document.getElementsByClassName('pelicula');
+            
             function sinopsis(){
+               for (var i=0;i<allPeliculas.length;i++){      
+                var pelicula = document.getElementById('pelicula-' + i);
+                var sinopsis = pelicula.getElementsByClassName('sinopsis')[0];
+                if(sinopsis.style.display == "none"){
+                                sinopsis.style.display = "block";
+                            } else {
+                                sinopsis.style.display = "none";
+                            }
                 
-             var documentoXml = peticionHttp.responseXML;
-                 if(peticionHttp.status == 200) {
-                     var sinopsis = documentoXml.getElementsByTagName("Sinopsis");
-                         for(var i=0; i< sinopsis.length; i++){    
-                          muestraSinopsis('pelicula2', sinopsis[i].childNodes[0].nodeValue)
-                         }   
-                 }
+               }    
           }   
                 
-           function muestraSinopsis(id,peli){
-                if(document.getElementById){
-                    // con el + le indicamos que nos muestre todas las pelis si le quitamos el mas solo nos muestra UNA PELI
-                    document.getElementById(id).innerHTML += peli;
-              }
-           }
-            
-            
            
-            }
+           
+            
          window.onload = archivoXML(); 
               
      

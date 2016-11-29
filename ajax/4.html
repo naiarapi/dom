@@ -1,84 +1,89 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <style type="text/css">
-           img{
-             height: 500px;
-             width:300px;
-         
-         } 
-         
-         .ocultar{
-             display:none;
-         }
-         
-              
-      </style>
+        <meta charset="utf-8" />
         
-                  
     </head>
     <body>
-      <div id="pelicula1" onclick= "sinopsis()"></div>
-      <div id="pelicula2"></div>
-      <script type="text/javascript">
-            function archivoXML() {
-              // Obtener la instancia del objeto XMLHttpRequest
-              if(window.XMLHttpRequest) {
-                 peticionHttp = new XMLHttpRequest();
-              }
-           
-              peticionHttp.onreadystatechange = listaPeliculas;
-              peticionHttp.open('GET', '3.xml', true);
-              peticionHttp.send(); 
-              
-              function listaPeliculas(){
-                //hace la llamada  
-               var documentoXml = peticionHttp.responseXML;
-
-                if(peticionHttp.status == 200) {
-                  
-                    var titulo= documentoXml.getElementsByTagName("Titulo");
-                    var director = documentoXml.getElementsByTagName("Director");
-                    var cartel = documentoXml.getElementsByTagName("Cartel");
-                    var sinopsis = documentoXml.getElementsByTagName("Sinopsis");
+        
+        <div class="wrapper">
+                <select id="director">
+                    <option value="">Director</option>
+                </select>
+                <select id="pelicula"></select>
+                <button id="mostrar">Mostrar</button>
+            
+            <div id="sinopsis"></div>
+        </div>
+        
+        <script type="text/javascript">
+        
+                var director = document.getElementById("director");
+                var pelicula = document.getElementById("pelicula");
+                var mostrar = document.getElementById("mostrar");
+                var sinopsis = document.getElementById("sinopsis");
+        
+                function cargarDocumento()
+                {
+                    var xhttp = new XMLHttpRequest();
                     
-                    for(var i=0; i< titulo.length; i++){
-                        muestra('pelicula1',"</br>"+director[i].childNodes[0].nodeValue+"-->"+titulo[i].childNodes[0].nodeValue+"<br/><img src='"+cartel[i].childNodes[0].nodeValue+ "'/></br><div class='ocultar"+sinopsis[i].childNodes[0].nodeValue+"'/></br>");
-             
+                    xhttp.onreadystatechange = function(){
+                      
+                            if(this.status == 200){
+                                var resXml = this.responseXML;
+                              
+                                var numPeliculas = resXml.getElementsByTagName("Pelicula");
+                                var valTitulo = resXml.getElementsByTagName("Titulo");
+                                var valDirector = resXml.getElementsByTagName("Director");
+                                var valSinopsis = resXml.getElementsByTagName("Sinopsis");
+                                
+                                // lista directores
+                                cargarDirectores(valDirector);
+                                
+                                //peliculas segun director
+                                director.onchange = function(){
+                                    
+                                    // elimina pelis
+                                    pelicula.innerHTML = "";
+                                    // obtiene director
+                                    var director = this.selectedIndex - 1;
+                                    //pelis de cada director
+                                    if(director.value != ""){
+                                        var opcion = document.createElement("option");
+                                        opcion.value = valTitulo[director].childNodes[0].nodeValue;
+                                        opcion.innerHTML = valTitulo[director].childNodes[0].nodeValue;
+                                        
+                                        pelicula.appendChild(opcion);
+                                    }
+                                    
+                                }
+                                
+                                mostrar.onclick = function(){
+                                    // obtenemos la pelicula seleccionada
+                                    var pelSelected = pelicula.options[pelicula.selectedIndex].value;
+                                    sinopsis.innerHTML = "<p>" + valSinopsis[pelSelected].childNodes[0].nodeValue + "</p>";
+                                }
+                                
+                            }
+                        }
+                    
+                    
+                    xhttp.open('GET', '4.xml', true);
+                    xhttp.send();
+                }
                 
-               }
-             }
-           }    
-            function muestra(id, peli){
-              if(document.getElementById){
-                    // con el + le indicamos que nos muestre todas las pelis si le quitamos el mas solo nos muestra UNA PELI
-                    document.getElementById(id).innerHTML += peli;
-              }
-            }
-            function sinopsis(){
+                cargarDocumento();
                 
-             var documentoXml = peticionHttp.responseXML;
-                 if(peticionHttp.status == 200) {
-                     var sinopsis = documentoXml.getElementsByTagName("Sinopsis");
-                         for(var i=0; i< sinopsis.length; i++){    
-                          muestraSinopsis('pelicula2', sinopsis[i].childNodes[0].nodeValue)
-                         }   
-                 }
-          }   
+                function cargarDirectores(directores)
+                {
+                    for (var i = 0; i < directores.length; i++) {
+                        var opcion = document.createElement("option");
+                        opcion.value = directores[i].childNodes[0].nodeValue;
+                        opcion.innerHTML = directores[i].childNodes[0].nodeValue;
+                        director.appendChild(opcion);
+                    }
+                }
                 
-           function muestraSinopsis(id,peli){
-                if(document.getElementById){
-                    // con el + le indicamos que nos muestre todas las pelis si le quitamos el mas solo nos muestra UNA PELI
-                    document.getElementById(id).innerHTML += peli;
-              }
-           }
-            
-            
-           
-            }
-         window.onload = archivoXML(); 
-              
-     
-      </script>        
+        </script>
     </body>
 </html>
