@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        
+    </head>
+    <body>
+        <div class="wrapper">
+                <select id="director">
+                    <option value="">Director</option>
+                </select>
+                <select id="pelicula"></select>
+                <button id="mostrar">Mostrar</button>
+            
+            <div id="sinopsis"></div>
+        </div>
+        
+        <script type="text/javascript">
+        
+                var director = document.getElementById("director");
+                var pelicula = document.getElementById("pelicula");
+                var mostrar = document.getElementById("mostrar");
+                var sinopsis = document.getElementById("sinopsis");
+        
+               var xhttp = new XMLHttpRequest();
+                    
+                    xhttp.onload = function(){
+                        if(xhttp.readyState == xhttp.DONE){
+                            if(this.status == 200){
+                                var resJson = JSON.parse(this.responseText);
+                              
+                          
+                                // lista directores
+                                cargarDirectores(resJson);
+                                
+                                //peliculas segun director
+                                director.onchange = function(){
+                                    
+                                    // elimina pelis
+                                    pelicula.innerHTML = "";
+                                    // obtiene director
+                                    var director = this.selectedIndex - 1;
+                                    //pelis de cada director
+                                    if(director.value != ""){
+                                        var opcion = document.createElement("option");
+                                        opcion.value = resJson[director].Titulo
+                                        opcion.innerHTML = resJson[director].Titulo;
+                                        
+                                        pelicula.appendChild(opcion);
+                                    }
+                                    
+                                }
+                                
+                                mostrar.onclick = function(){
+                                    for (var i = 0; i < resJson.length; i++) {
+                                    // obtenemos la pelicula seleccionada
+                                    var pelSelected = pelicula.selectedIndex;
+                                    sinopsis.innerHTML = "<p>" +  resJson[pelSelected].Sinopsis + "</p>";
+                                    console.log(pelSelected);
+                                    }    
+                                }
+                                
+                            }
+                        }
+                    }
+                    
+                    
+                    xhttp.open('GET', '3.json', true);
+                    xhttp.send();
+                
+              
+                
+                function cargarDirectores(resJson)
+                {
+                    for (var i = 0; i < resJson.length; i++) {
+                        var opcion = document.createElement("option");
+                        opcion.value = resJson[i].Director;
+                        opcion.innerHTML = resJson[i].Director;
+                        director.appendChild(opcion);
+                       
+                    }
+                }
+                
+        </script>
+    </body>
+</html>

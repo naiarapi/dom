@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        
+
+    </head>
+    <body>
+        
+        <input type="text" name="nombre" id="nombre">
+         <div id="todos"></div>
+         <script type="text/javascript">
+           
+             var peticionHttp = new XMLHttpRequest();  
+                
+            
+                var xhttp = new XMLHttpRequest();
+                var input = document.getElementById("nombre");
+                    
+                xhttp.onload = function(){
+                    if(xhttp.readyState == xhttp.DONE){
+                        if(this.status == 200){
+                            var resXml = JSON.parse(this.responseText);
+                            
+                            input.onkeyup = function(){
+                                var busqueda = input.value;
+                                var text = "";
+                                
+                                if(busqueda !== ""){ 
+                                    busqueda = busqueda.toLowerCase();
+                                    
+                                    for(var i=0;i<resXml.length;i++){
+                                        if(resXml[i].nombre.toLowerCase().indexOf(nombre.value.toLowerCase()) >= 0){
+                                            text += "<p>"+ resXml[i].nombre +"</p>";
+                                        }
+                                    }
+                                    document.getElementById("todos").innerHTML = text;
+                                } else {
+                                    document.getElementById("todos").innerHTML = "";
+                                }
+                            }
+                        }
+                    }
+                }
+                    
+                xhttp.open('GET', '2.json', true);
+                xhttp.send();
+       
+           </script>
+    </body>
+</html>

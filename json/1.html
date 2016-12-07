@@ -1,0 +1,44 @@
+<html>
+    
+<head>
+    
+</head>    
+
+
+<body>
+    
+    <div id="peliculas"></div>
+    
+    
+    <script type="text/javascript">
+           
+                var peticionHttp = new XMLHttpRequest();  
+                
+                  
+               peticionHttp.onload = function(){ 
+                    //hace la llamada  
+                   
+    
+                    if(peticionHttp.status == 200) {
+                      var resultado = JSON.parse(this.responseText);
+                      muestra(resultado);
+                     
+                 }
+               }    
+                  peticionHttp.open('GET', '1.json', true);
+                  peticionHttp.send();   
+                function muestra(resultado){
+                  var contenido = " ";
+                  for(var i=0; i<resultado.length; i++){
+                      contenido += '<p>' + resultado[i].director + ' --> ' + resultado[i].titulo + '</p>'
+                  }
+                  
+                  document.getElementById("peliculas").innerHTML+= contenido;
+                  }
+       
+           </script>
+        
+</body>
+    
+    
+</html>
