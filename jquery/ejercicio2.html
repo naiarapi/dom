@@ -1,0 +1,126 @@
+<html>
+<head>
+<title>Practice with jquery</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+<style type="text/css">
+    #contenido, #contenido1{
+         background-color: pink;
+    }
+</style>
+</head>
+
+<body>
+<div id="contenido">Ejercicio1 VIP</div>
+<div id="contenido1">Ejercicio2 POPULAR</div>
+<div id="asientos_libres">NUMERO DE ASIENTOS LIBRES:<p></p></div>
+
+<div id="asientos"><b>CINE ZUBIRI</b>
+
+<ul id="zona_vip"><i>
+   <li id="row_1">FILA Libre
+    <ul>
+     <li>asiento 1-1</li>
+     <li>asiento 1-2</li>
+     <li>asiento 1-3</li>
+     <li>asiento 1-4</li>
+     <li>asiento 1-5</li>
+    </ul>
+   </li>
+</i></ul>
+<ul id="zona_popular">
+  <li id="row_2">FILA Libre
+   <ul>
+    <li>asiento 2-1</li>
+    <li>asiento 2-2</li>
+    <li>asiento 2-3</li>
+    <li>asiento 2-4</li>
+    <li>asiento 2-5</li>
+   </ul>
+  </li>
+    <li id="row_3">FILA Libre
+   <ul>
+    <li>asiento 3-1</li>
+    <li>asiento 3-2</li>
+    <li>asiento 3-3</li>
+    <li>asiento 3-4</li>
+    <li>asiento 3-5</li>
+   </ul>
+  </li>
+    <li id="row_4">FILA Libre
+   <ul>
+    <li>asiento 4-1</li>
+    <li>asiento 4-2</li>
+    <li>asiento 4-3</li>
+    <li>asiento 4-4</li>
+    <li>asiento 4-5</li>
+   </ul>
+  </li>
+</ul>
+<div id="nueva_fila"></div>
+</div>
+<script languajes="javascript">
+
+
+ /*Ejercicio 1*/
+
+	$(document).ready(function(){
+    	 
+    	 var vip= $('#zona_vip').clone();
+         $('#contenido').append(vip);
+	}); 
+	
+ /*Ejercicio 2*/	
+	$(document).ready(function(){
+    	    
+    	 var popular= $('#zona_popular').clone();
+         $('#contenido1').append(popular);
+	});   
+	
+ /*Ejercicio 3*/	
+	$(document).ready(function(){
+    	    
+    	 $('div#asientos li ul li:contains("-3")').css('background-color', 'red');
+       
+	});   
+	
+ /*Ejercicio 4*/	
+    $(document).ready(function() {
+        $("div#asientos ul li#row_1 ").html(function(buscayremplaza, remplaza) {
+            return remplaza.replace('Libre', 'COMPLETO');
+        });
+        $('div#asientos li#row_1 ul').css('background-color', 'red');
+    });
+    
+ /*Ejercicio 5 NO SALE*/    
+    
+    $(document).ready(function(){
+       var libres= $("div#asientos ul#zona_popular li ").filter(":even").length;
+       $("#asientos_libres p").append(libres);
+        
+	});
+	
+ /*Ejercicio 6*/	
+	
+	 $(document).ready(function(){
+       $("div#asientos ul li ul").filter(":odd").css('background-color', 'blue');
+   
+	});   
+
+ /*Ejercicio 7*/	   
+	$(document).ready(function(){
+	  $("#nueva_fila").append(
+	    "<li id='row_5'>FILA Libre"+
+           "<ul>"+
+            "<li>asiento 5-1</li>"+
+            "<li>asiento 5-2</li>"+
+            "<li>asiento 5-3</li>"+
+            "<li>asiento 5-4</li>"+
+            "<li>asiento 5-5</li>"+
+          "</ul>"+
+          "</li>"   
+	   )
+	 
+	});   
+</script>
+</body>
+</html>
