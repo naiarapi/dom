@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+     <style type="text/css">
+         .numeros{
+             color:white;
+             background-color:green;
+         }
+     </style>
+    </head>
+    <body>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+        when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+        when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+       <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+        when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+        <a href="#">ZUBIRI</a>
+        <ul>
+         <li>1</li>
+         <li>2</li>
+         <li>3</li>
+         <li>4</li>
+        </ul>  
+        
+        <div id="borrado">NAIARA</div>
+        <script type="text/javascript">
+            
+        	$(document).ready(function(){
+        	    
+        	    $("p").click(function(){
+        	        $(this).html("");
+        	    });
+            	    
+           	}); 
+           	
+           	$(document).ready(function(){
+        	    
+        	    $("a").click(function(){
+        	       alert("se ha bloqueado el enlace");
+        	    });
+            	    
+           	}); 
+           	
+           	$(document).ready(function(){
+        	    
+        	    $("li").mouseover(function(){
+        	      $(this).addClass("numeros");
+        	    });
+            	    
+           	}); 
+           	
+           	$(document).ready(function(){
+        	    
+        	   $("div").click(function(){
+        	     $(this).html("BORRADO!");
+        	   });
+            	    
+           	}); 
+           	
+        
+            
+        </script>
+        
+    </body>
+</html>

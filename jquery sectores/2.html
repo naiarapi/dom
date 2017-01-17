@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>   
+    
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+      <style type="text/css">
+          
+      </style>
+        
+    </head>
+    <body>
+        <form  method="get">
+            <p>
+            <input type="text" name="nombre" id="nombre">
+            <input type="text" name="apellido" id="apellido">
+            <input type="text" name="email" id="email">
+            </p>
+            <p>
+            <input type="text" name="direccion" id="direccion">
+            <input type="text" name="telefono" id="telefono">
+            <input type="text" name="movil" id="movil">
+            </p>
+        </form>
+        
+        
+        <script type="text/javascript">
+              $(document).ready(function(){
+                  $("input").focus(function(){
+                     $(this).css({
+                         'border-color': 'red',
+                         'background-color':'blue' 
+                         });
+                  });
+                  $("input").focusout(function(){
+                     $(this).css({
+                         'border-color': 'inherit',
+                         'background-color':'white' 
+                    });
+                  });
+              });      
+            
+        </script>
+    </body>
+</html>
