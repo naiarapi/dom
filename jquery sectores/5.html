@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+         <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script> 
+         <style type="text/css">
+             div{
+                 border: 1px solid black;
+              
+                 
+             }
+             h1,h2,form{
+                 text-align: center;
+             }
+         </style>
+    </head>
+    <body>
+        
+        <h1>MENU DEL DIA</h1>
+        <div></div>
+        <h2>Primeros</h2>
+        <form action="">
+             <input type="radio" name="gender" value="mixta"><p>Ensalada Mixta</p>
+             <input type="radio" name="gender" value="pasta"><p>Ensalada de pasta</p>
+             <input type="radio" name="gender" value="pesto"><p>Pasta al pesto</p>
+             <input type="radio" name="gender" value="entremeses"><p>Entremeses</p>
+             <input type="radio" name="gender" value="sopa"><p>Sopa de pescado</p>
+             <input type="radio" name="gender" value="menestra"><p>Menestra de verduras</p>
+             <input type="radio" name="gender" value="berenjena"><p>Berenjena rellena</p>
+             <input type="radio" name="gender" value="puding"><p>Puding de gambas</p>
+             <input type="radio" name="gender" value="garbanzos"><p>Garbanzos</p>
+        </form>
+            <div></div>
+         <form action="">    
+            <h2>Segundos</h2>
+             <input type="radio" name="gender" value="entrecot"><p>Entrecot con salsa roquefort</p>
+             <input type="radio" name="gender" value="lubina"><p>Lubina al horno</p>
+             <input type="radio" name="gender" value="pollo"><p>Pollo asado</p>
+             <input type="radio" name="gender" value="txipirones"><p>Txipirones en su tinta</p>
+             <input type="radio" name="gender" value="hamburguesa"><p>Hamburguesas de pavo con patatas</p>
+             <input type="radio" name="gender" value="salmonetes"><p>Salmonetes a la plancha</p>
+             <input type="radio" name="gender" value="muslo"><p>Muslo relleno de jamon y queso</p>
+        </form>     
+            <div></div>
+        <form action="">   
+            <h2>Postres</h2>
+             <input type="radio" name="gender" value="natilla"><p>Natillas</p>
+             <input type="radio" name="gender" value="mouse"><p>Mouse de chocolate</p>
+             <input type="radio" name="gender" value="arroz"><p>Arroz con leche</p>
+             <input type="radio" name="gender" value="cuajada"><p>Cuajada</p>
+             <input type="radio" name="gender" value="tarta"><p>Tarta de manzana</p>
+             <input type="radio" name="gender" value="fruta"><p>Fruta</p>
+             <input type="radio" name="gender" value="yogurt"><p>Yogurt casero</p>
+         </form>
+         <form>
+         <input type="checkbox" name="cafe" value="cafe" id="cafe"><h1>Cafe</h1>
+         <button>PEDIR</button>
+         </form>
+        <script type="text/javascript">
+           
+             $(document).ready(function(){
+                 
+                 $("input").click(function(){
+                   $("p").css('font-style','normal');   
+                   if(this.checked){
+                      $(this).next().css('font-style','italic');
+                        
+                   }
+                 });
+                 
+                 
+                 $("button").click(function(){
+                    $("#cafe").prop("checked", true);
+                    
+                 });
+                 
+             });     
+         
+        
+        </script>
+    </body>
+</html>

@@ -1,0 +1,48 @@
+<html>
+    <head>
+       <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script> 
+
+    </head>
+    <body>
+        <textarea rows="4" cols="50"></textarea>
+        
+         
+        
+        <script type="text/javascript">
+        
+            $(document).ready(function(){
+            //var vocales=['a','e','i','o','u'];
+             
+              $('textarea').keyup(function(){
+                 var contador=0; 
+                 var palabras = $(this).val();
+                 palabras=palabras.split("");
+                 
+                 for(var i=0; i<palabras.length; i++){
+                     if ((palabras[i]=='a') || (palabras[i]=='e') || (palabras[i]=='i') || (palabras[i]=='o') || (palabras[i]=='u')){
+                         contador++;
+                         
+                         
+                     }
+        }
+                   if(contador%2==0){
+                        $("textarea").css('background-color','blue');
+                                 
+                     }else{
+                        $("textarea").css('background-color','yellow'); 
+                    }  
+                console.log(contador);    
+                });
+            
+           }); 
+        
+        
+        
+        </script>
+        
+        
+        
+    </body>
+    
+    
+</html>

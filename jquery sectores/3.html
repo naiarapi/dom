@@ -18,15 +18,17 @@
                  
                   	$("img").bind('contextmenu', function(e) {
                           if (e.button == 2) {
-                             e.preventDefault(); 
+                            e.preventDefault(); 
                             alert("Prohibido");
                           }
                 	});
                        	
                        	
-                 $("p").select(function(){		
+                 $("p").mouseup(function(e){	
+                  e.preventDefault();
                   alert("prohibido ");
-                  console.log("ok");
+                  
+                  
                 }); 
                 
           });   

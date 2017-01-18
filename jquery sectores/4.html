@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+        <style type="text/css">
+            #cuadros {
+                width: 960px;
+                margin: 0 auto;
+            }
+        
+            #cuadros div {
+                border: 1px solid black;
+                width: 400px;
+                height: 200px;
+                float: left;
+            }
+            
+           
+        </style>
+    </head>
+    <body>
+        <div id="cuadros">   
+            <div id="cuadro1"></div> 
+            <div id="cuadro2"></div>
+            <div id="cuadro3"></div>
+            <div id="cuadro4"></div>
+         </div>    
+        <script type="text/javascript">
+            $(document).ready(function(){
+                
+                var ultimo = 0;
+               
+               $("#cuadro1").mouseover(function(){
+                
+                  $(this).html("esta en el cuadro 1 que viene de "+ultimo);
+                  ultimo=1;
+                    
+               });
+            
+               $("#cuadro2").mouseover(function(){
+                   $(this).html("esta en el cuadro 2 que viene de "+ultimo);
+                   ultimo=2;
+               });
+                $("#cuadro3").mouseover(function(){
+                   $(this).html("esta en el cuadro 3 que viene de "+ultimo);
+                   ultimo=3;
+               });
+                $("#cuadro4").mouseover(function(){
+                   $(this).html("esta en el cuadro 4 que viene de "+ultimo);
+                   ultimo=4;
+               });
+               
+                $("#cuadro1, #cuadro2,#cuadro3,#cuadro4").mouseout(function(){
+                   $(this).html("");
+                   
+                   
+               });
+               
+               
+                
+            });    
+        
+        </script>
+        
+        
+    </body>
+</html>
