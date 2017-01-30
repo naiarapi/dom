@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+        <style type="text/css">
+        
+            #cuadro1, #cuadro2, #cuadro3, #cuadro4{
+                background-color:red;
+                width: 200px;
+                height: 200px;
+                float:left;
+                
+            }
+            
+            #cuadro2, #cuadro4{
+                margin-left: 1000px;
+               
+            }
+            
+            #cuadro3,#cuadro4{
+                margin-top: 500px;
+            }
+            
+            div{
+                position: fixed;
+            }
+           
+            
+            
+        </style>    
+    </head>
+    <body>
+    <table>
+        <tr>
+            <td><div id="cuadro1"></div></td>
+            <td><div id="cuadro2"></div></td>
+        </tr>
+        <tr>
+            <td><div id="cuadro3"></div></td>
+            <td><div id="cuadro4"></div></td>
+        </tr>
+    </table>    
+      
+        
+        <script type="text/javascript">
+            
+              $(document).ready(function(){
+                  var agrandado = false;
+                 
+                 $("div").click(function(){
+                   
+                         if(agrandado == false){
+                        $(this).animate({
+                             'width': '400px',
+                             'height':'400px'
+                         });
+                           agrandado =true;
+                           $(this).addClass("grande");
+                        }
+                        
+                          
+                    
+              });
+                        $(document).keydown(function(e) {
+                            e.preventDefault();
+                            if (e.keyCode == 39) {
+                                //derecha
+                                $('.grande').animate({ marginLeft : '+=50px'
+                                });//animate39
+                                
+                             
+                            }//if39
+                            else if (e.keyCode == 37) {
+                                //izquierda
+                                $('.grande').animate({ marginLeft: '-=50px'
+                                });//animate37
+                             }//if37
+                             else if(e.keyCode==38){
+                                //arriba 
+                                $('.grande').animate({ marginTop: '-=50px'
+                                });//animate38
+                                 
+                             }
+                             else if(e.keyCode==40){
+                                 //abajo
+                                $('.grande').animate({ marginTop: '+=50px'
+                                });//animate40
+                                 
+                             }
+                        }); //teclas
+               
+            });  
+          
+            
+             $('div').click(function(){
+        if(!AmplCuad){
+            $(this).animate({
+               width: "200px",
+               height: "200px"
+            }, 500);
+            AmplCuad = true;
+            $(this).addClass('mover grande');
+        } else {
+            $('div').filter('.grande').animate({
+               width: "150px",
+               height: "150px"
+            }, 500);
+            $('div').filter('.grande').removeClass('mover');
+            $('div').filter('.grande').removeClass('grande');
+            $(this).animate({
+               width: "200px",
+               height: "200px"
+            }, 500);
+            $(this).addClass('grande mover');
+            
+            
+        }
+    });
+        </script>
+    </body>
+</html>

@@ -9,6 +9,7 @@
                 width: 200px;
                 height: 200px;
                 float:left;
+                position: fixed;
                 
             }
             
@@ -42,21 +43,33 @@
         <script type="text/javascript">
             
               $(document).ready(function(){
-                  
+                  var agrandado = false;
                  
                  $("div").click(function(){
-                     swicth(this){
-                         case 1 :  $("#cuadro1").css('width', '500px');
-                     }
-                   
-                     
-                 });
-            
-              });      
-            
-            
-            
-            
+                     if(!agrandado){
+                         $(this).addClass('grande');
+                         $(this).animate({
+                             'width': '400px',
+                             'height':'400px'
+                         },1000);
+                         $(this).addClass('grande');
+                           agrandado =true;
+                     }else if($(this).hasClass('grande')) {
+                         $(this).animate({
+                             'width':'200px',
+                             'height':'200px',
+                              
+                            
+                         },1000);
+                         $(this).removeClass('grande');
+                         agrandado=false;
+                         
+                 } 
+                    console.log(agrandado);
+              });  
+              
+            });  
+          
         </script>
     </body>
 </html>
