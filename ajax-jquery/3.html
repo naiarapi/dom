@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+       <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+ 
+    </head>
+    <body>
+       <select id="tipos">
+                <option value="irakasleak">irakasleak</option>
+                <option value="ikasleak">ikasleak</option>
+       </select> 
+        <select id="todos"></select> 
+        
+        <script type="text/javascript">
+            var todos = $("#todos");
+            var tipos = $("#tipos");
+            tipos.change(function(){
+                var tipos = $("#tipos").val();
+                todos.html('');
+                var datos = {a: tipos};
+                 
+                 $.ajax(
+                 {
+                  url : "3.1.php",
+                  type: "POST",
+                  dataType : 'json',
+                  data :  datos,
+                  success: function(respuesta){
+                    $.each(respuesta, function(i,alumno){
+                        todos.append('<option value="'+alumno.izena+'">'+alumno.izena+'</option>')
+                    });
+                   }
+             }); 
+             
+            });
+            
+        </script>
+    </body>
+</html>
