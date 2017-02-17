@@ -9,13 +9,18 @@
                 <option value="irakasleak">irakasleak</option>
                 <option value="ikasleak">ikasleak</option>
        </select> 
-        <select id="todos"></select> 
+        <select id="todos"></select>
+        
+        <div id="ikasgaiak"></div>
         
         <script type="text/javascript">
             var todos = $("#todos");
             var tipos = $("#tipos");
+            var ikasgaia = $("#ikasgaiak");
+            
             tipos.change(function(){
                 var tipos = $("#tipos").val();
+              
                 todos.html('');
                 var datos = {a: tipos};
                  
@@ -27,12 +32,42 @@
                   data :  datos,
                   success: function(respuesta){
                     $.each(respuesta, function(i,alumno){
-                        todos.append('<option value="'+alumno.izena+'">'+alumno.izena+'</option>')
+                         
+                        todos.append('<option value="'+alumno.izena+'">'+alumno.izena+'</option>');
+                       
                     });
                    }
              }); 
              
-            });
+                 
+                  
+             });
+                
+             todos.change(function(){
+                  var datos = {a: tipos.val()};
+                 
+                  $.ajax(
+                 {
+                  url : "3.1.php",
+                  type: "POST",
+                  dataType : 'json',
+                  data :  datos,
+                  success: function(respuesta){
+                    $.each(respuesta, function(i,alumno){
+                        
+                        if(alumno.izena == todos.val()){
+                            ikasgaia.html('<p>'+alumno.ikasgaia+'<p>');
+                            console.log(alumno.ikasgaia);
+                        }
+                 
+                       
+                    });
+                   }
+          
+                 });
+          
+             });
+          
             
         </script>
     </body>

@@ -18,21 +18,21 @@
 	
 	"Ikasleak": [{
 		"izena": "Aitor",
-		"ikasgaiak": ["DWS”,” DAW"]
+		"ikasgaia": ["DWS"," DAW"]
 	}, {
 		"izena": "Iker",
-		"ikasgaiak": ["DWS", "DWC", "DAW"]
+		"ikasgaia": ["DWS", "DWC", "DAW"]
 	}, {
 		"izena": "Odei",
-		"ikasgaiak": ["DWC", "DI", "DAW"]
+		"ikasgaia": ["DWC", "DI", "DAW"]
 	}, {
 		"izena": "Jon",
-		"ikasgaiak": ["DWS”,”DWC”,”DAW"]
+		"ikasgaia": ["DWS","DWC","DAW"]
 	}, {
 		"izena": "Igor",
-		"ikasgaiak": ["DWS", "DWC"]
+		"ikasgaia": ["DWS", "DWC"]
 	}, {
 		"izena": "Naiara",
-		"ikasgaiak": ["DAW"]
+		"ikasgaia": ["DAW"]
 	}]
 }
